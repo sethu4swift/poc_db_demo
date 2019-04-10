@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './index.css';
+import './theme.scss';
 import store from './reducers'
 import Routes from './Routes';
 import * as serviceWorker from './serviceWorker';
 
 let App = () => (
     <Provider store={store}>
-        <Routes />
+        <div className="container">
+            <Routes />
+        </div>
     </Provider>
     )
 

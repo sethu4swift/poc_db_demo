@@ -4,7 +4,7 @@ import Todo from './Todo'
 import enhancer from './TodosListEnhancer'
 
 const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
+  <ul className="list-group">
     {todos.map(todo => (
       <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
     ))}
