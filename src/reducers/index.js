@@ -1,20 +1,16 @@
-import { combineReducers, createStore } from 'redux'
-import { persistentStore } from 'redux-pouchdb';
+import { persistentReducer } from 'redux-pouchdb';
+import storeCreator from './StoreCreator';
 import todos from './todos'
-import PouchDB from 'pouchdb-browser'
-
- 
-const db = new PouchDB('dbname');
- 
-
-const createStoreWithMiddleware = persistentStore(db)(createStore);
- 
-const rootReducer = combineReducers({
-  todos
-})
 
 
-const store = createStoreWithMiddleware(rootReducer);
- 
+const showLoggers = false;
+const isProduction = false;
+const couchDBName = 'pocDb';
+const couchDBUrlConnector = false;
 
-export default store
+export default storeCreator(
+  {
+    todos: persistentReducer(todos),
+  },
+  { isProduction, showLoggers, couchDBName, couchDBUrlConnector },
+);

@@ -1,7 +1,7 @@
-let nextTodoId = 0
+let nextTodoId = () => Date.now()
 export const addTodo = text => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+  id: nextTodoId(),
   text
 })
 
