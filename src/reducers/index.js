@@ -5,8 +5,9 @@ import todos from './todos'
 
 const showLoggers = false;
 const isProduction = false;
-const couchDBName = 'pocDb';
-const couchDBUrlConnector = false;
+const couchDBName = 'poc';
+// const couchDBUrlConnector = false;
+const couchDBUrlConnector = 'https://couchdb-44755c.smileupps.com';
 
 export default storeCreator(
   {

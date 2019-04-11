@@ -11,6 +11,9 @@ const todos = (state = initState, action) => {
             completed: false
           }
         ]
+      case 'REMOVE_TODO':
+        return state.filter(val => val.id !== action.id)
+
       case 'TOGGLE_TODO':
         return state.map(todo =>
           todo.id === action.id ? { ...todo, completed: !todo.completed } : todo

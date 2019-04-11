@@ -1,0 +1,2 @@
+curl -s -X PUT http://admin:09aab932e65b@couchdb-44755c.smileupps.com/poc
+add-cors-to-couchdb https://couchdb-44755c.smileupps.com -u admin -p 09aab932e65b

@@ -63,35 +63,34 @@ const storeCreator = (reducers, props) => {
 
   let persistentStoreObject = () => {};
   if (couchDBName) {
-    const db = new PouchDB(couchDBName);
+    const localDB = new PouchDB(couchDBName);
 
     if (couchDBUrlConnector)
     {
-        PouchDB.sync(
-      couchDBName, couchDBUrlConnector,
-      {
+      let  remoteDB = new PouchDB(couchDBUrlConnector + '/' + couchDBName);
+
+      localDB.replicate.to(remoteDB, {
         live: true,
-        retry: true,
-      }).on('change', (info) => {
-      // handle change
-      console.log('change', info);
-    }).on('paused', (err) => {
-      // replication paused (e.g. replication up to date, user went offline)
-      console.log('paused', err);
-    }).on('active', () => {
-      // replicate resumed (e.g. new changes replicating, user went back online)
-      console.log('active');
-    }).on('denied', (err) => {
-      // a document failed to replicate (e.g. due to permissions)
-      console.log('denied', err);
-    }).on('complete', (info) => {
-      // handle complete
-      console.log('complete', info);
-    }).on('error', (err) => {
-      // handle error
-      console.log('error', err);
-    });}
-    persistentStoreObject = persistentStore(db, (data) => {
+        retry: true
+      }).on('complete', function () {
+        console.log('local sync')
+      }).on('error', function (err) {
+        console.error('local error', err)
+      });
+
+      // remoteDB.replicate.to(localDB, {
+      //   live: true,
+      //   retry: true
+      // }).on('complete', function () {
+      //   console.log('remote sync')
+      // }).on('error', function (err) {
+      //   console.error('remote error', err)
+      // });
+
+
+      
+  }
+    persistentStoreObject = persistentStore(localDB, (data) => {
       console.log('data', data);
     });
   }
