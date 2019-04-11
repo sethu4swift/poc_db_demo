@@ -1,8 +1,4 @@
-let initState = [{
-  id:123,
-  completed: false,
-  text:"heylo"
-}]
+let initState = []
 
 const todos = (state = initState, action) => {
     switch (action.type) {
