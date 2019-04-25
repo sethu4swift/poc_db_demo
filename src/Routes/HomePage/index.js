@@ -6,6 +6,7 @@ import TodoList from './components/Todos/TodoList'
 import AddTodos from './components/Todos/AddTodos'
 import { doLogout } from '../Login/actionCreators'
 import { selectUserInfo } from '../Login/selector'
+
 class Home extends React.Component {
   render() {
     return (
