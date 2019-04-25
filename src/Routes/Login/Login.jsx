@@ -50,7 +50,7 @@ class Login extends Component {
                 color="danger"
                 className="px-4"
                 onClick={() =>
-                  alert('username ->faiz@swiftwin.com \n password-> faizan')
+                  alert('username ->faiz@swiftwin.com \n password-> Faizan')
                 }
               >
                 FORGOT PASSWORD
