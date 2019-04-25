@@ -120,7 +120,9 @@ const storeCreator = (reducers, props) => {
         )
       )
   sagaMiddleware.run(rootSaga)
-
+  store.subscribe(() => {
+    console.log('updated store', store.getState())
+  })
   // https://github.com/reactjs/react-redux/releases/tag/v2.0.0
   // Hot reloading reducers is now explicit (#80)
   if (module.hot) {

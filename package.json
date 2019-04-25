@@ -19,11 +19,13 @@
     "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-pouchdb": "^0.1.4",
     "redux-saga": "^1.0.2",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "@hot-loader/react-dom": "^16.8.6"
   },
   "scripts": {
     "eject": "react-scripts eject",
