@@ -1,6 +1,6 @@
 import React from 'react'
-import { TextInput } from '~/Shared/Components/Formik'
 import enhancer from './enhancer'
+import { TextInput } from '~/Shared/Components/Formik'
 
 const Login = ({
   values,

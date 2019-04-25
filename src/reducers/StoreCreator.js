@@ -3,6 +3,8 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import PouchDB from 'pouchdb-browser'
 import { persistentStore } from 'redux-pouchdb'
+import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from '../common/sagas/rootSaga'
 
 /**
  * Lets you dispatch special actions with a { promise } field.
@@ -47,6 +49,7 @@ const readyStatePromise = store => next => action => {
 const storeCreator = (reducers, props) => {
   const { isProduction, showLoggers, couchDBName, couchDBUrlConnector } = props
   let { loggerOptions } = props
+  const sagaMiddleware = createSagaMiddleware()
 
   const reducersObj = combineReducers(reducers)
 
@@ -95,7 +98,8 @@ const storeCreator = (reducers, props) => {
         compose(
           applyMiddleware(
             // thunkMiddleware,
-            readyStatePromise
+            readyStatePromise,
+            sagaMiddleware
             // vanillaPromise,
           ),
           persistentStoreObject
@@ -107,6 +111,7 @@ const storeCreator = (reducers, props) => {
           applyMiddleware(
             // thunkMiddleware,
             readyStatePromise,
+            sagaMiddleware,
             // vanillaPromise,
             loggerMiddleware
           ),
@@ -114,6 +119,7 @@ const storeCreator = (reducers, props) => {
           window.devToolsExtension ? window.devToolsExtension() : f => f
         )
       )
+  sagaMiddleware.run(rootSaga)
 
   // https://github.com/reactjs/react-redux/releases/tag/v2.0.0
   // Hot reloading reducers is now explicit (#80)
