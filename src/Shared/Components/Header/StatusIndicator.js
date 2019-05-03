@@ -3,9 +3,11 @@ import './style.scss'
 
 export const StatusIndicator = props => {
   return (
-    <div className="header">
-      <div className="status status-online" />
-      <div className="">{'Welcome, Britney!'}</div>
-    </div>
+    <React.Fragment>
+      <div className="StatusIndicator">
+        <div className="status status-online" />
+        <div className="">{'Welcome, Britney!'}</div>
+      </div>
+    </React.Fragment>
   )
 }
