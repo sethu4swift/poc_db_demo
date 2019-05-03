@@ -1,0 +1,17 @@
+.header {
+  .status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 7px;
+    padding: 0;
+    list-style: none;
+    &.status-online {
+      background-color: #94e185;
+    }
+    &.status-offline {
+      background-color: red;
+    }
+  }
+}

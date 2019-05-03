@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker'
 
 let App = () => (
   <Provider store={store}>
-    <div className="container">
+    <div className="paddingZero container-fluid ">
       <Routes />
     </div>
   </Provider>

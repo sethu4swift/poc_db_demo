@@ -1,5 +1,91 @@
-// Override default variables before the import
-$body-bg: #fff;
+// ************** app color scheme ****************
+$body-bg: #f4f4f4;
+$copper: #c0562e;
+$light-navy: #114c66;
+$white: #ffffff;
+$black: #000000;
+//? tooltip
+$error-tooltip-error: #e02020;
+$error-tooltip-font: #ffffff;
+
+//? input
+$inputBox-bg: #f4f4f4;
+$inputBox-border: #dbdbdb;
+$inputBox-font: #7b7b7b;
+
+//? checkbox
+$checkbox-font-value: #444444;
+$checkbox-unCheck-border: #9c9c9c;
+$checkbox-checked-bg: #333333;
+
+$forgot-password: #444444;
+
+//? button
+$button-inactive: #919191;
+$button-normal: #114c66;
+$button-hovered: #0a2d3d;
+$button-pressed: #061c26;
+$button-secondary-normal: #333333;
+$button-secondary-hovered: #232323;
+$button-secondary-pressed: #161616;
+$button-font: #ffffff;
+
+//? card
+$card-border: #dbdbdb;
+$card-body: #ffffff;
+// *************************************************
+$zero: 0px;
+$container-max-widths: (
+  // todo for future use
+    sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 100%
+) !default;
+
+// $btn-padding-y: 5rem !default;
+// $input-border-width:10px;
+$btn-border-radius: 50% !default;
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    'copper': $copper,
+    'light-navy': $light-navy,
+    'error-tooltip-error': $error-tooltip-error,
+    'error-tooltip-font': $error-tooltip-font,
+    'inputBox-bg': $inputBox-bg,
+    'inputBox-border': $inputBox-border,
+    'inputBox-font': $inputBox-font,
+    'checkbox-font-value': $checkbox-font-value,
+    'checkbox-unCheck-border': $checkbox-unCheck-border,
+    'checkbox-checked-bg': $checkbox-checked-bg,
+    'forgot-password': $forgot-password,
+    'button-inactive': $button-inactive,
+    'button-normal': $button-normal,
+    'button-hovered': $button-hovered,
+    'button-pressed': $button-pressed,
+    'button-secondary-normal': $button-secondary-normal,
+    'button-secondary-hovered': $button-secondary-hovered,
+    'button-secondary-pressed': $button-secondary-pressed,
+    'button-font': $button-font,
+    'card-border': $card-border,
+    'card-body': $card-body
+  ),
+  $theme-colors
+);
+
+// ************** common styles ****************
+
+.copper {
+  color: $copper;
+}
+.light-navy {
+  color: $light-navy;
+}
+.whiteBackground {
+  background-color: $white;
+}
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

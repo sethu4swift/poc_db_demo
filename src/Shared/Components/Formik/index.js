@@ -1,3 +1,5 @@
-import TextInput from './TextInput'
+import { TextInput } from './TextInput'
+import { InputFeedback } from './InputFeedback'
+import { Label } from './Label'
 
-export { TextInput }
+export { TextInput, InputFeedback, Label }
